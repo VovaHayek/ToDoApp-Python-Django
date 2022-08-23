@@ -68,6 +68,8 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'tasks.User'
+
 WSGI_APPLICATION = 'ToDoApp.wsgi.application'
 
 

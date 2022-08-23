@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def to_do_tasks(request):
+    return render(request, 'ToDoApp/tasks.html')

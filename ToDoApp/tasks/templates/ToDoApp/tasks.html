@@ -3,7 +3,24 @@
 {% block tasks %}
     <div class="container">
         {% if user.is_authenticated %}
-
+            <h1 class="tasks-user-username">{{user.username}}</h1>
+            <div class="tasks-container">
+                <form method="POST" class="tasks-create-task-form">
+                    {% csrf_token %}
+                    <input type="text" name="task_text" class="tasks-form-task-text">
+                    <button class="tasks-create-button"><i class="fa-solid fa-plus"></i></button>
+                </form>
+                <div class="tasks-filter-task-container">
+                    <select class="tasks-filter">
+                        <option value="All">All</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Uncompleted">Uncompleted</option>
+                    </select>
+                </div>
+                <div class="all-tasks-container">
+                    <h1>dfdfdf</h1>
+                </div>
+            </div>
         {% else %}
             {% include 'includes/loginForm.html' %}
         {% endif %}

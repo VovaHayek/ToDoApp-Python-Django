@@ -18,6 +18,100 @@
     100% {background-position: 0 50%;}
 }
 
+/*Tasks Main Page*/
+.tasks-container{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding-top: 5%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*"CREATE TASK" FORM*/
+.tasks-create-task-form {
+    width: 60%;
+    height: 6.5%;
+    margin-left: 3%;
+}
+
+.tasks-form-task-text {
+    font-size: 20px;
+    width: 79%;
+    height: 3em;
+    border: none;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.tasks-create-button {
+    font-size: 20px;
+    width: 15%;
+    height: 3em;
+    color: #fff;
+    border: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin-left: -1%;
+    cursor: pointer;
+    background-color: #F94892;
+    transition: .5s ease-in-out;
+}
+
+.tasks-create-button:hover {
+    box-shadow: 0px 0px 6px #ff42b6;
+}
+
+/*TASKS FILTER*/
+.tasks-filter-task-container {
+    width: 30%;
+    height: 6.5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.tasks-filter-task-container::after {
+    content: '\25BC';
+    width: 20%;
+    height: 100%;
+    color: #eee;
+    font-size: 20px;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #F94892;
+}
+
+.tasks-filter {
+    width: 98%;
+    height: 100%;
+    font-size: 20px;
+    appearance: none;
+    outline: none;
+    border: none;
+}
+
+/*ALL TASKS CONTAINER*/
+.all-tasks-container {
+    width: 100%;
+    height: auto;
+    margin: 3%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
 /*LOGIN FORM*/
 .login-form {
     width: 20%;

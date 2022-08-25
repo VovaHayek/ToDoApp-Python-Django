@@ -140,6 +140,13 @@
     background-color: rgb(255, 246, 239);
 }
 
+/*COMPLETED TASKS*/
+.completed {
+    background-color: rgb(1, 150, 1);
+    color: #fff;
+    text-shadow: 0px 0px 3px #333;
+}
+
 /*TASK DELETE BUTTON*/
 .task-delete-button-container {
     width: 15%;
@@ -174,7 +181,7 @@
 }
 
 /*TASK "MARK AS COMPLETED" BUTTON*/
-.task-complete-button-container {
+.task-complete-button-container, .task-uncomplete-button-container {
     width: 15%;
     height: 100%;
     display: flex;
@@ -183,7 +190,7 @@
     background-color: rgb(0, 168, 0);
 }
 
-.task-complete-button-container button {
+.task-complete-button-container button, .task-uncomplete-button-container button {
     font-size: 18px;
     width: 100%;
     height: 100%;
@@ -196,7 +203,16 @@
 }
 
 .task-complete-button-container button:hover {
-    background-color: rgb(3, 182, 3);
+    background-color: rgba(255, 0, 0, 0.753);
+}
+
+.task-uncomplete-button-container button:hover {
+    background-color: #ff0000;
+}
+
+/*UNCOMPLETE TASK BUTTON*/
+.task-uncomplete-button-container, .task-uncomplete-button-container button {
+    background-color: #fd4e08;
 }
 
 /*LOGIN FORM*/

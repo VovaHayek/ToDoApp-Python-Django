@@ -17,11 +17,24 @@
                         <option value="Uncompleted">Uncompleted</option>
                     </select>
                 </div>
-                <div class="all-tasks-container">
+                <div class="all-tasks-container" id="all-tasks-container">
                     {% for task in tasks %}
+                        {% if task.completion is True %}
+                        <div class="task-container completed">
+                            <div class="task-delete-button-container">
+                                <button value="{{task.id}}" onclick="deleteTask(this.value)"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                            <div class="task-text-container">
+                                <h3>{{task.to_do}}</h3>
+                            </div>
+                            <div class="task-uncomplete-button-container">
+                                <button value="{{task.id}}"><i class="fa-solid fa-square-xmark"></i></button>
+                            </div>
+                        </div>
+                        {% else %}
                         <div class="task-container">
                             <div class="task-delete-button-container">
-                                <button value="{{task.id}}"><i class="fa-solid fa-trash"></i></button>
+                                <button value="{{task.id}}" onclick="deleteTask(this.value)"><i class="fa-solid fa-trash"></i></button>
                             </div>
                             <div class="task-text-container">
                                 <h3>{{task.to_do}}</h3>
@@ -30,6 +43,7 @@
                                 <button value="{{task.id}}"><i class="fa-solid fa-square-check"></i></button>
                             </div>
                         </div>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>

@@ -20,4 +20,10 @@ def loginForm(request):
 
 def to_do_tasks(request):
     tasks = Tasks.objects.filter(author=request.user)
+    if request.method == "POST":
+        task_data = request.POST.get('task_text')
+        if task_data:
+            task = Tasks.objects.create(author=request.user, to_do=task_data)
+            task.save()
+            return redirect('/')
     return render(request, 'ToDoApp/tasks.html', {'tasks': tasks})

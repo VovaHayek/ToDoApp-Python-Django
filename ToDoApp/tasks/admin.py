@@ -1,7 +1,7 @@
 from django.contrib.auth.admin import UserAdmin
 from django.contrib import admin
 
-from .models import User
+from .models import User, Tasks
 
 class UserModelAdmin(UserAdmin):
     list_display = ('username', 'date_joined', 'last_login', 'is_admin', 'is_staff')
@@ -14,3 +14,4 @@ class UserModelAdmin(UserAdmin):
 
 
 admin.site.register(User, UserModelAdmin)
+admin.site.register(Tasks)

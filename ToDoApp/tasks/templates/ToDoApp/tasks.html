@@ -18,7 +18,19 @@
                     </select>
                 </div>
                 <div class="all-tasks-container">
-                    <h1>dfdfdf</h1>
+                    {% for task in tasks %}
+                        <div class="task-container">
+                            <div class="task-delete-button-container">
+                                <button value="{{task.id}}"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                            <div class="task-text-container">
+                                <h3>{{task.to_do}}</h3>
+                            </div>
+                            <div class="task-complete-button-container">
+                                <button value="{{task.id}}"><i class="fa-solid fa-square-check"></i></button>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         {% else %}

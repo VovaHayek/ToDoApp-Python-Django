@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 
-from .models import User
+from .models import User, Tasks
 
 def loginForm(request):
     if request.method == "POST":
@@ -19,5 +19,5 @@ def loginForm(request):
     return render(request, 'includes/loginForm.html')
 
 def to_do_tasks(request):
-
-    return render(request, 'ToDoApp/tasks.html')
+    tasks = Tasks.objects.filter(author=request.user)
+    return render(request, 'ToDoApp/tasks.html', {'tasks': tasks})

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
+#CUSTOM USER MODEL
 class MyUserManager(BaseUserManager):
     def create_user(self, username, password=None):
         if not username:
@@ -44,3 +45,13 @@ class User(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return True
+
+#TASKS MODEL
+class Tasks(models.Model):
+    author = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    to_do = models.TextField()
+    task_creation_time = models.DateTimeField(auto_now_add=True)
+    completion = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.to_do

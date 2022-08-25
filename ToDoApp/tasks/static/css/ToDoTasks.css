@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+
+
 /*GRADIENT BACKGROUND*/
 .container {
     width: 100%;
@@ -17,6 +19,8 @@
     50% {background-position: 100% 50%;}
     100% {background-position: 0 50%;}
 }
+
+
 
 /*Tasks Main Page*/
 .tasks-container{
@@ -32,6 +36,8 @@
     left: 50%;
     transform: translateX(-50%);
 }
+
+
 
 /*"CREATE TASK" FORM*/
 .tasks-create-task-form {
@@ -66,6 +72,8 @@
 .tasks-create-button:hover {
     box-shadow: 0px 0px 6px #ff42b6;
 }
+
+
 
 /*TASKS FILTER*/
 .tasks-filter-task-container {
@@ -102,14 +110,93 @@
     border: none;
 }
 
+
+
 /*ALL TASKS CONTAINER*/
 .all-tasks-container {
     width: 100%;
     height: auto;
-    margin: 3%;
-    background-color: #fff;
+    margin-left: 3%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-container {
+    font-family: sans-serif;
+    font-size: 18px;
+    width: 90%;
+    min-height: 7vh;
+    margin: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 5px -3px #000;
+    background-color: rgb(255, 246, 239);
+}
+
+/*TASK DELETE BUTTON*/
+.task-delete-button-container {
+    width: 15%;
+    height: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    background-color: #fc3f3f;
+}
+
+.task-delete-button-container button {
+    font-size: 18px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    color: #eee;
+    text-shadow: 0px 0px 3px #000;
+    background-color: #fc3f3f;
+    cursor: pointer;
+    transition: .3s ease-in;
+}
+
+.task-delete-button-container button:hover {
+    background-color: #ff3333;
+}
+
+/*TASK TEXT*/
+.task-text-container {
+    width: 70%;
+    height: auto;
+    margin-left: 9px;
+}
+
+/*TASK "MARK AS COMPLETED" BUTTON*/
+.task-complete-button-container {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 168, 0);
+}
+
+.task-complete-button-container button {
+    font-size: 18px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    color: #eee;
+    text-shadow: 0px 0px 3px #000;
+    background-color: rgb(0, 168, 0);
+    cursor: pointer;
+    transition: .3s ease-in;
+}
+
+.task-complete-button-container button:hover {
+    background-color: rgb(3, 182, 3);
 }
 
 /*LOGIN FORM*/

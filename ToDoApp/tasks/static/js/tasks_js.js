@@ -31,3 +31,39 @@ function deleteTask(e){
         } 
     })
 }
+
+function markAsCompleted(e) {
+    $.ajax({
+        url: '',
+        type: "POST",
+        dataType: 'json',
+        data: {
+            'completeTaskId': e
+        },
+        headers: {
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRFToken": getCookie("csrftoken"),
+        },
+        success: (data) => {
+            location.reload();
+        }
+    })
+}
+
+function markAsUncompleted(e) {
+    $.ajax({
+        url: '',
+        type: "POST",
+        dataType: 'json',
+        data: {
+            'uncompleteTaskId': e
+        },
+        headers: {
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRFToken": getCookie("csrftoken"),
+        },
+        success: (response) => {
+            location.reload();
+        }
+    })
+}

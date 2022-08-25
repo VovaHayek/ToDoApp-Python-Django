@@ -26,9 +26,19 @@ def to_do_tasks(request):
 
     if is_ajax:
         if request.method == "POST":
+            uncomplete_task_id = request.POST.get('uncompleteTaskId')
+            complete_task_id = request.POST.get('completeTaskId')
             delete_task_id = request.POST.get('deleteTaskId')
             if delete_task_id:
                 delete_task = Tasks.objects.get(id=delete_task_id).delete()
+            if complete_task_id:
+                complete_task = Tasks.objects.get(id=complete_task_id)
+                complete_task.completion = True
+                complete_task.save()
+            if uncomplete_task_id:
+                uncomplete_task = Tasks.objects.get(id=uncomplete_task_id)
+                uncomplete_task.completion = False
+                uncomplete_task.save()
             updated_tasks = serializers.serialize("xml", Tasks.objects.filter(author=request.user))
             return JsonResponse(updated_tasks, safe=False)
 

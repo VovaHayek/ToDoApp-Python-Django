@@ -67,3 +67,47 @@ function markAsUncompleted(e) {
         }
     })
 }
+
+$("#tasks-filter-completion").on('change', function(){
+    $.ajax({
+        url: '',
+        type: "GET",
+        dataType: 'json',
+        data: {
+            "filterValue": this.value
+        },
+        headers: {
+            "X-Requested-With": 'XMLHttpRequest'
+        },
+        success: (response) => {
+            $("#all-tasks-container").empty('');
+            $.each(JSON.parse(response), function(key, value){
+                if (value.fields.completion === false){
+                    $("#all-tasks-container").append(`<div class="task-container">\
+                                        <div class="task-delete-button-container">
+                                            <button value="`+value.pk+`" onclick="deleteTask(this.value)"><i class="fa-solid fa-trash"></i></button>
+                                        </div>
+                                        <div class="task-text-container">
+                                            <h3>`+value.fields.to_do+`</h3>
+                                        </div>
+                                        <div class="task-complete-button-container">
+                                            <button value="`+value.pk+`" onclick="markAsCompleted(this.value)"><i class="fa-solid fa-square-check"></i></button>
+                                        </div>
+                                    </div>`);
+                } else {
+                    $("#all-tasks-container").append(`<div class="task-container completed">\
+                                        <div class="task-delete-button-container">
+                                            <button value="`+value.pk+`" onclick="deleteTask(this.value)"><i class="fa-solid fa-trash"></i></button>
+                                        </div>
+                                        <div class="task-text-container">
+                                            <h3>`+value.fields.to_do+`</h3>
+                                        </div>
+                                        <div class="task-uncomplete-button-container">
+                                            <button value="`+value.pk+`" onclick="markAsUncompleted(this.value)"><i class="fa-solid fa-square-xmark"></i></button>
+                                        </div>
+                                    </div>`);
+                }
+            })
+        }
+    })
+})  

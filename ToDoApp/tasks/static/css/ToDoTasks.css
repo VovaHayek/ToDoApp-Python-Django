@@ -20,7 +20,21 @@
     100% {background-position: 0 50%;}
 }
 
+/*"WELCOME USER" TEXT DESIGN*/
+.welcome-text {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.tasks-user-username {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 50px;
+    color: #eee;
+    text-shadow: 0px 0px 6px #000;
+}
 
 /*Tasks Main Page*/
 .tasks-container{

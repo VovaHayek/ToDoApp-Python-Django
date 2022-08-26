@@ -21,7 +21,10 @@ def loginForm(request):
     return render(request, 'includes/loginForm.html')
 
 def to_do_tasks(request):
-    tasks = Tasks.objects.filter(author=request.user)
+    context = {}
+    if request.user.is_authenticated:
+        tasks = Tasks.objects.filter(author=request.user)
+        context = {"tasks": tasks}
     is_ajax = request.headers.get("X-Requested-With") == "XMLHttpRequest"
 
     if is_ajax:
@@ -42,6 +45,19 @@ def to_do_tasks(request):
             updated_tasks = serializers.serialize("xml", Tasks.objects.filter(author=request.user))
             return JsonResponse(updated_tasks, safe=False)
 
+        if request.method == "GET":
+            filter_value = request.GET.get('filterValue')
+            if filter_value == "All":
+                tasks = serializers.serialize("json", Tasks.objects.filter(author=request.user))
+                return JsonResponse(tasks, safe=False)
+            if filter_value == "Completed":
+                tasks = serializers.serialize("json", Tasks.objects.filter(author=request.user, completion=True))
+                return JsonResponse(tasks, safe=False)
+            if filter_value == "Uncompleted":
+                tasks = serializers.serialize("json", Tasks.objects.filter(author=request.user, completion=False))
+                return JsonResponse(tasks, safe=False)
+            
+
 
     if request.method == "POST":
         task_data = request.POST.get('task_text')
@@ -49,5 +65,6 @@ def to_do_tasks(request):
             task = Tasks.objects.create(author=request.user, to_do=task_data)
             task.save()
             return redirect('/')
+    
 
-    return render(request, 'ToDoApp/tasks.html', {'tasks': tasks})
+    return render(request, 'ToDoApp/tasks.html', context)

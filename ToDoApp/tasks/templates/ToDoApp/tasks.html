@@ -3,7 +3,10 @@
 {% block tasks %}
     <div class="container">
         {% if user.is_authenticated %}
-            <h1 class="tasks-user-username">{{user.username}}</h1>
+            <div class="welcome-text">
+                <h1 class="tasks-user-username">Welcome: {{user.username}}</h1>
+            </div>
+
             <div class="tasks-container">
                 <form method="POST" class="tasks-create-task-form">
                     {% csrf_token %}
@@ -11,7 +14,7 @@
                     <button class="tasks-create-button"><i class="fa-solid fa-plus"></i></button>
                 </form>
                 <div class="tasks-filter-task-container">
-                    <select class="tasks-filter">
+                    <select class="tasks-filter" id="tasks-filter-completion">
                         <option value="All">All</option>
                         <option value="Completed">Completed</option>
                         <option value="Uncompleted">Uncompleted</option>

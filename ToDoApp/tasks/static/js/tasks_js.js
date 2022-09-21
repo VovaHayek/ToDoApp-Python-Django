@@ -91,7 +91,7 @@ $("#tasks-filter-completion").on('change', function(){
                                             <h3>`+value.fields.to_do+`</h3>
                                         </div>
                                         <div class="task-complete-button-container">
-                                            <button value="`+value.pk+`" onclick="markAsCompleted(this.value)"><i class="fa-solid fa-square-check"></i></button>
+                                            <button value="`+value.pk+`" onclick="markAsCompleted(this.value)"></button>
                                         </div>
                                     </div>`);
                 } else {
@@ -102,8 +102,8 @@ $("#tasks-filter-completion").on('change', function(){
                                         <div class="task-text-container">
                                             <h3>`+value.fields.to_do+`</h3>
                                         </div>
-                                        <div class="task-uncomplete-button-container">
-                                            <button value="`+value.pk+`" onclick="markAsUncompleted(this.value)"><i class="fa-solid fa-square-xmark"></i></button>
+                                        <div class="task-complete-button-container">
+                                            <button value="`+value.pk+`" onclick="markAsUncompleted(this.value)"><i class="fa-solid fa-square-check"></i></button>
                                         </div>
                                     </div>`);
                 }

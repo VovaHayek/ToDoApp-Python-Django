@@ -30,8 +30,8 @@
                             <div class="task-text-container">
                                 <h3>{{task.to_do}}</h3>
                             </div>
-                            <div class="task-uncomplete-button-container">
-                                <button value="{{task.id}}" onclick="markAsUncompleted(this.value)"><i class="fa-solid fa-square-xmark"></i></button>
+                            <div class="task-complete-button-container">
+                                <button value="{{task.id}}" onclick="markAsUncompleted(this.value)"><i class="fa-solid fa-square-check"></i></button>
                             </div>
                         </div>
                         {% else %}
@@ -43,7 +43,7 @@
                                 <h3>{{task.to_do}}</h3>
                             </div>
                             <div class="task-complete-button-container">
-                                <button value="{{task.id}}" onclick="markAsCompleted(this.value)"><i class="fa-solid fa-square-check"></i></button>
+                                <button value="{{task.id}}" onclick="markAsCompleted(this.value)"></i></button>
                             </div>
                         </div>
                         {% endif %}
